@@ -12,18 +12,18 @@ const SongCard = ({ title, artist, photo, audio, songId, playlistMode, playingSo
     const audioRef = useRef(null);
     const { enqueueSnackbar } = useSnackbar();
     const [isAdd,setIsAdd]=useState(false)
-    const isPlaying = playingSongId === songId; // Check if this song is currently playing
+    const isPlaying = playingSongId === songId; 
 
     useEffect(() => {
         if (isPlaying) {
-            audioRef.current.play(); // Play the song if it's the one that's selected
+            audioRef.current.play(); 
         } else {
-            audioRef.current.pause(); // Pause the song if it's not the one selected
+            audioRef.current.pause(); 
         }
     }, [isPlaying]);
 
     const handlePlayPause = () => {
-        onPlay(isPlaying ? null : songId); // Toggle play/pause
+        onPlay(isPlaying ? null : songId); 
     };
 
     const addToPlaylist = async() => {
@@ -59,7 +59,7 @@ console.log(email,songId);
                 <CardMedia
                     component="img"
                     sx={{ width: 200, height: 140, objectFit: 'cover' }}
-                    image={`http://localhost:8082/${photo}`}
+                    image={`${config.endpoint}/${photo}`}
                     alt={title}
                 />
                 <CardContent>
@@ -85,7 +85,7 @@ console.log(email,songId);
                     </Button>
                 ))}
             </CardActions>
-            <audio ref={audioRef} src={`http://localhost:8082/${audio}`} />
+            <audio ref={audioRef} src={`${config.endpoint}/${audio}`} />
         </Card>
     );
 };

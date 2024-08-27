@@ -8,7 +8,7 @@ import Signin from "./Component/Signin";
 import './Style/sigup.css'
 import Playlist from "./Component/Playlist";
 export const config = {
-  endpoint: `http://localhost:8082`,
+  endpoint: `https://music-website-ml9y.onrender.com`,
 };
 function App() {
   return (
